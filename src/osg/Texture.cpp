@@ -212,6 +212,14 @@ bool isSizedInternalFormat(GLint internalFormat)
             return true;
     }
 
+	const size_t formatsCount2 = sizeof(sizedDepthAndStencilInternalFormats) / sizeof(sizedDepthAndStencilInternalFormats[0]);
+	
+	for (size_t i = 0; i < formatsCount2; ++i)
+	{
+		if ((GLenum)internalFormat == sizedDepthAndStencilInternalFormats[i].sizedInternalFormat)
+			return true;
+	}
+
     return false;
 }
 
@@ -224,6 +232,14 @@ GLenum assumeSizedInternalFormat(GLint internalFormat, GLenum type)
         if(internalFormat == sizedInternalFormats[i].internalFormat && type == sizedInternalFormats[i].type)
             return sizedInternalFormats[i].sizedInternalFormat;
     }
+
+	const size_t formatsCount2 = sizeof(sizedDepthAndStencilInternalFormats) / sizeof(sizedDepthAndStencilInternalFormats[0]);
+
+	for (size_t i = 0; i < formatsCount2; ++i)
+	{
+		if (internalFormat == sizedDepthAndStencilInternalFormats[i].internalFormat && type == sizedDepthAndStencilInternalFormats[i].type)
+			return sizedDepthAndStencilInternalFormats[i].sizedInternalFormat;
+	}
 
     return 0;
 }
