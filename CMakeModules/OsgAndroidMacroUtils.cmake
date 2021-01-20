@@ -66,18 +66,7 @@ MACRO(ANDROID_3RD_PARTY)
     ################################################
     #JPEG
     ################################################
-    FIND_PATH(JPEG_INCLUDE_DIR Android.mk
-        ${CMAKE_SOURCE_DIR}/3rdparty/libjpeg NO_CMAKE_FIND_ROOT_PATH
-    )
-    #set(ENV{AND_OSG_LIB_NAMES} "$ENV{AND_OSG_LIB_NAMES} libjpeg")
-    #set(ENV{AND_OSG_LIB_PATHS} "$ENV{AND_OSG_LIB_PATHS}include ${JPEG_INCLUDE_DIR}/Android.mk \n")
-    if(JPEG_INCLUDE_DIR)
-        message(STATUS "Jpeg found ${JPEG_INCLUDE_DIR}" )
-        set(JPEG_FOUND "Yes")
-        install(DIRECTORY 3rdparty/build/libjpeg/ DESTINATION ./ )
-    else(JPEG_INCLUDE_DIR)
-        message(STATUS "Jpeg missing" )
-    endif()
+    find_package(JPEG)
     ################################################
     #PNG
     ################################################
