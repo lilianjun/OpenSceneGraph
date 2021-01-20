@@ -95,7 +95,7 @@ MACRO(ANDROID_3RD_PARTY)
     ################################################
     #FREETYPE
     ################################################
-    find_package(FREETYPE)
+    find_package(FreeType)
 
     MESSAGE(STATUS "llj-msg  ${FREETYPE_FOUND} -- ${FREETYPE_INCLUDE_DIRS} -- ${FREETYPE_INCLUDE_DIR_ft2build} -- ${FREETYPE_INCLUDE_DIR_freetype2} --")
 
