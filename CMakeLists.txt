@@ -163,6 +163,9 @@ ENDIF(NOT CMAKE_BUILD_TYPE)
 
 IF(ANDROID)
     INCLUDE(OsgAndroidMacroUtils)
+    MESSAGE(STATUS "llj-msg: use OsgAndroidMacroUtils")
+ELSE(ANDROID)
+    MESSAGE(STATUS "llj-msg: no use OsgAndroidMacroUtils")
 ENDIF()
 
 # Okay, here's the problem: On some platforms, linking against OpenThreads
