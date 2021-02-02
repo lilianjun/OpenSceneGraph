@@ -70,8 +70,8 @@ ELSEIF(APPLE)
         SET (IPHONE_VERSION_MIN "7.0" CACHE STRING "IOS minimum os version, use 7.0 or greater to get 64bit support")
 
         # get full path to sdk from requested versions
-        SET (IPHONE_DEVROOT "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer")
-        SET (IPHONE_SDKROOT "${IPHONE_DEVROOT}/SDKs/iPhoneOS${IPHONE_SDKVER}.sdk")
+        #SET (IPHONE_DEVROOT "/Applications/Xcode.app/Contents/Developer/Platforms/iPhoneOS.platform/Developer")
+        #SET (IPHONE_SDKROOT "${IPHONE_DEVROOT}/SDKs/iPhoneOS${IPHONE_SDKVER}.sdk")
 
         # optionally enable bitcode for the build
         SET (IPHONE_ENABLE_BITCODE "NO" CACHE STRING "IOS Enable Bitcode")
@@ -245,10 +245,11 @@ IF(APPLE)
     IF(OSG_BUILD_PLATFORM_IPHONE)
 
         # set the sdk path as our sysroot, if we set this before the project is defined cmake fails to build its test program
-        SET(CMAKE_OSX_SYSROOT "${IPHONE_SDKROOT}" CACHE STRING "System root for iOS" FORCE)
+        #SET(CMAKE_OSX_SYSROOT "${IPHONE_SDKROOT}" CACHE STRING "System root for iOS" FORCE)
 
         # Set the path to OpenGL library
-        SET(OPENGL_gl_LIBRARY "${IPHONE_SDKROOT}/System/Library/Frameworks/OpenGLES.framework")
+        #SET(OPENGL_gl_LIBRARY "${IPHONE_SDKROOT}/System/Library/Frameworks/OpenGLES.framework")
+        SET(OPENGL_gl_LIBRARY "OpenGLES.framework")
 
     ELSE ()
         FIND_LIBRARY(COCOA_LIBRARY Cocoa)
